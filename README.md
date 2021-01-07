@@ -1,5 +1,5 @@
 # Heimat_stylometry
-Stylometric analyses of the Heimat journal (1918)
+Stylometric analyses of the *Heimat* journal (1918)
 
 ## Corpora
 Divided into three folders
@@ -10,10 +10,10 @@ Divided into three folders
 ## Scripts
 To be run in the indicated order:
 - **01_candidates_testing.R** tests stylometric methods on the development corpus
-- **02_candidates_analysis.R** attributes the Heimat texts to the four candidates
+- **02_candidates_analysis.R** attributes the Heimat texts to the four candidates using the best-performing stylometric methods
 - **03_imposters_testing.R** tests the impostors method on the development corpus
 - **04_imposters_testing_refine.R** identifies the best-working group of impostors on the development corpus
-- **05_imposters_analysis.R** confirms the attributions of the Heimat texts to the four candidates using the impostors method
+- **05_imposters_analysis.R** confirms the attributions of the Heimat texts to the four candidates using the best configuration of the impostors method
 - **06_process_results.R** produces the final results table
 
 ## Results
