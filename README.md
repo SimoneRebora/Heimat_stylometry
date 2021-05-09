@@ -13,7 +13,7 @@ To be run in the indicated order:
 - **02_candidates_analysis.R** attributes the Heimat texts to the four candidates using the best-performing stylometric methods (all features used for the analyses are listed [here](https://github.com/SimoneRebora/Heimat_stylometry/blob/main/features/02_candidates_analysis_features.csv))
 - **03_imposters_testing.R** tests the impostors method on the development corpus (all features used for the analyses are listed [here](https://github.com/SimoneRebora/Heimat_stylometry/blob/main/features/03_imposters_testing_features.csv))
 - **04_imposters_testing_refine.R** identifies the best-working group of impostors on the development corpus (all features used for the analyses are listed [here](https://github.com/SimoneRebora/Heimat_stylometry/blob/main/features/04_imposters_testing_refine_features.csv))
-- **05_imposters_analysis.R** confirms the attributions of the Heimat texts to the four candidates using the best configuration of the impostors method (all features used for the analyses are listed [here](https://github.com/SimoneRebora/Heimat_stylometry/blob/main/features/05_imposters_analysis_features.csv))
+- **05_imposters_analysis.R** confirms the attributions of the Heimat texts to the four candidates using the best configuration of the impostors method (features for the analyses are identified by the previous script)
 - **06_process_results.R** produces the final results table
 
 ## Results
