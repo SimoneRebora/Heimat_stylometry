@@ -9,7 +9,7 @@ Divided into three folders
 
 ## Scripts
 To be run in the indicated order:
-- **01_candidates_testing.R** tests stylometric methods on the development corpus
+- **01_candidates_testing.R** tests stylometric methods on the development corpus (all features used for the analyses are listed [here](https://github.com/SimoneRebora/Heimat_stylometry/blob/main/features/01_candidates_testing_features.csv))
 - **02_candidates_analysis.R** attributes the Heimat texts to the four candidates using the best-performing stylometric methods
 - **03_imposters_testing.R** tests the impostors method on the development corpus
 - **04_imposters_testing_refine.R** identifies the best-working group of impostors on the development corpus
