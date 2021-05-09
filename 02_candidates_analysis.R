@@ -96,7 +96,7 @@ filename <- paste("candidates_analysis__",
                   length(heimat_stylo), "texts__",
                   n_candidates, "candidates__", 
                   length(selected_methods$MFW), "methods__",
-                  "centroid", centroid,
+                  "centroidFALSE",
                   ".RData", sep = "")
 
 # main loop for analysis (works on the Heimat articles)

@@ -201,6 +201,11 @@ for(i in 1:ceiling((length(blei_stylo)/50))){
   
 }
 
+# delete chunks shorter than 500 words
+short_chunks <- unlist(lapply(blei_stylo_mw, function(x) length(which(is.na(x)))))
+short_chunks <- which(short_chunks > 0)
+blei_stylo_mw <- blei_stylo_mw[-short_chunks]
+
 # 2. Musil
 
 musil_text <- paste(musil_text, collapse = " ")
@@ -215,6 +220,11 @@ for(i in 1:ceiling((length(musil_stylo)/50))){
   musil_stylo_mw[[i]] <- musil_stylo[((i-1)*50)+(1:500)]
   
 }
+
+# delete chunks shorter than 500 words
+short_chunks <- unlist(lapply(musil_stylo_mw, function(x) length(which(is.na(x)))))
+short_chunks <- which(short_chunks > 0)
+musil_stylo_mw <- musil_stylo_mw[-short_chunks]
 
 # 3. Guetersloh
 
@@ -231,6 +241,11 @@ for(i in 1:ceiling((length(guetersloh_stylo)/50))){
   
 }
 
+# delete chunks shorter than 500 words
+short_chunks <- unlist(lapply(guetersloh_stylo_mw, function(x) length(which(is.na(x)))))
+short_chunks <- which(short_chunks > 0)
+guetersloh_stylo_mw <- guetersloh_stylo_mw[-short_chunks]
+
 # 4. Kisch
 
 kisch_text <- paste(kisch_text, collapse = " ")
@@ -241,10 +256,15 @@ kisch_stylo <- stylo::txt.to.words.ext(kisch_text, corpus.lang = "German")
 kisch_stylo_mw <- list()
 
 for(i in 1:ceiling((length(kisch_stylo)/50))){
-
+  
   kisch_stylo_mw[[i]] <- kisch_stylo[((i-1)*50)+(1:500)]
-
+  
 }
+
+# delete chunks shorter than 500 words
+short_chunks <- unlist(lapply(kisch_stylo_mw, function(x) length(which(is.na(x)))))
+short_chunks <- which(short_chunks > 0)
+kisch_stylo_mw <- kisch_stylo_mw[-short_chunks]
 
 # create dev corpus (multiple text selections per author) 
 

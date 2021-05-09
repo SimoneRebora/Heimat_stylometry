@@ -6,7 +6,7 @@ library(tidyverse)
 # find thresholds for impostors analysis (based on the refined testing)
 ################
 
-load("Imposters_test_refine__results.RData")
+load("imposters_testing_refine__results.RData")
 
 my_authors <- c("Blei", "Guetersloh", "Kisch", "Musil")
 
