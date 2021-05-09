@@ -4,7 +4,7 @@ library(stylo)
 library(stringr)
 
 # define selected methods
-selected_methods <- expand.grid(MFW = (1:30)*10, distance = c("dist.manhattan", "dist.euclidean", "dist.delta", "dist.eder", "dist.canberra", "dist.wurzburg", "dist.argamon", "dist.cosine", "dist.entropy", "dist.minmax", "dist.simple"), culling = 100, centroid = F, stringsAsFactors = FALSE)
+selected_methods <- read.csv("features/02_candidates_analysis_features.csv", stringsAsFactors = F)
 
 # read texts in training set
 my_texts <- list.files("training_set/")

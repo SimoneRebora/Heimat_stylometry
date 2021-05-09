@@ -4,8 +4,7 @@ library(stylo)
 library(stringr)
 
 # define methods to be tested
-selected_methods <- expand.grid(MFW = (1:30)*10, distance = c("dist.manhattan", "dist.euclidean", "dist.delta", "dist.eder", "dist.canberra", "dist.wurzburg", "dist.argamon", "dist.cosine", "dist.entropy", "dist.minmax", "dist.simple"), culling = 100, centroid = c(T, F), stringsAsFactors = FALSE)
-selected_methods <- rbind(selected_methods, expand.grid(MFW = (1:20)*100, distance = c("dist.manhattan", "dist.euclidean", "dist.delta", "dist.eder", "dist.canberra", "dist.wurzburg", "dist.argamon", "dist.cosine", "dist.entropy", "dist.minmax", "dist.simple"), culling = c(50,0), centroid = c(T, F), stringsAsFactors = FALSE))
+selected_methods <- read.csv("features/01_candidates_testing_features.csv", stringsAsFactors = F)
 
 # read texts in training set
 my_texts <- list.files("training_set/")
@@ -80,74 +79,37 @@ names(author_reference) <- my_authors_sel
 
 # prepare dev corpus (per author)
 
-blei_text <- readLines("development_set/blei.txt")
-musil_text <- readLines("development_set/musil.txt")
-guetersloh_text <- readLines("development_set/guetersloh.txt")
-kisch_text <- readLines("development_set/kisch.txt")
+all_dev_files <- list.files("development_set", full.names = T)
+all_dev_authors <- list.files("development_set")
+all_dev_authors <- gsub(".txt", "", all_dev_authors)
 
-# 1. Blei
+mw_corpus <- list()
 
-blei_text <- paste(blei_text, collapse = " ")
-blei_text <- clean_texts(blei_text)
-blei_stylo <- stylo::txt.to.words.ext(blei_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-blei_stylo_mw <- list()
-
-for(i in 1:ceiling((length(blei_stylo)/50))){
+for(i in 1:length(all_dev_files)){
   
-  blei_stylo_mw[[i]] <- blei_stylo[((i-1)*50)+(1:500)]
+  my_text <- readLines(all_dev_files[i])
+  my_text <- paste(my_text, collapse = " ")
+  my_text <- clean_texts(my_text)
   
-}
-
-# 2. Musil
-
-musil_text <- paste(musil_text, collapse = " ")
-musil_text <- clean_texts(musil_text)
-musil_stylo <- stylo::txt.to.words.ext(musil_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-musil_stylo_mw <- list()
-
-for(i in 1:ceiling((length(musil_stylo)/50))){
+  my_text_stylo <- stylo::txt.to.words.ext(my_text, corpus.lang = "German")
   
-  musil_stylo_mw[[i]] <- musil_stylo[((i-1)*50)+(1:500)]
+  # use moving window to create multiple selections of 500-word-long texts
+  mw_corpus[[i]] <- list()
+  
+  for(n in 1:ceiling((length(my_text_stylo)/50))){
+    
+    mw_corpus[[i]][[n]] <- my_text_stylo[((n-1)*50)+(1:500)]
+    
+  }
+  
+  # delete chunks shorter than 500 words
+  number_NAs <- unlist(lapply(mw_corpus[[i]], function(x) length(which(is.na(x)))))
+  exclude <- which(number_NAs > 0)
+  mw_corpus[[i]] <- mw_corpus[[i]][-exclude]
   
 }
 
-# 3. Guetersloh
-
-guetersloh_text <- paste(guetersloh_text, collapse = " ")
-guetersloh_text <- clean_texts(guetersloh_text)
-guetersloh_stylo <- stylo::txt.to.words.ext(guetersloh_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-guetersloh_stylo_mw <- list()
-
-for(i in 1:ceiling((length(guetersloh_stylo)/50))){
-  
-  guetersloh_stylo_mw[[i]] <- guetersloh_stylo[((i-1)*50)+(1:500)]
-  
-}
-
-# 4. Kisch
-
-kisch_text <- paste(kisch_text, collapse = " ")
-kisch_text <- clean_texts(kisch_text)
-kisch_stylo <- stylo::txt.to.words.ext(kisch_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-kisch_stylo_mw <- list()
-
-for(i in 1:ceiling((length(kisch_stylo)/50))){
-
-  kisch_stylo_mw[[i]] <- kisch_stylo[((i-1)*50)+(1:500)]
-
-}
-
-# create dev corpus (multiple text selections per author) 
-
-mw_corpus <- list(Musil = musil_stylo_mw, Blei = blei_stylo_mw, Guetersloh = guetersloh_stylo_mw, Kisch = kisch_stylo_mw)
+names(mw_corpus) <- all_dev_authors
 
 # prepare final results container
 
@@ -157,9 +119,9 @@ filename <- paste("candidates_testing__",
                   length(selected_methods$MFW), "methods",
                   ".RData", sep = "")
 
-# main loop for analysis (works on the four authors)
+# main loop for analysis (works on the candidate authors)
 
-for(text_id in 1:4){
+for(text_id in 1:length(mw_corpus)){
 
   final_attributions[[text_id]] <- selected_methods
   final_attributions[[text_id]]$attribution <- ""

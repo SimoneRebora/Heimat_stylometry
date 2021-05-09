@@ -4,9 +4,7 @@ library(stylo)
 
 # define variables for analysis
 
-n_best_imposters <- c(2,4,8,16,32,64)
-MFW_series <- c((1:10)*20)
-methods_combination <- expand.grid(n_best_imposters, MFW_series, c("dist.delta", "dist.eder", "dist.canberra", "dist.wurzburg"), stringsAsFactors = FALSE)
+methods_combination <- read.csv("features/03_imposters_testing_features.csv", stringsAsFactors = F)
 
 my_passage_length <- 500
 validation_rounds <- 10
@@ -166,94 +164,37 @@ all_imposters <- all_imposters[-exclude]
 
 # prepare dev corpus (per author)
 
-blei_text <- readLines("development_set/blei.txt")
-musil_text <- readLines("development_set/musil.txt")
-guetersloh_text <- readLines("development_set/guetersloh.txt")
-kisch_text <- readLines("development_set/kisch.txt")
+all_dev_files <- list.files("development_set", full.names = T)
+all_dev_authors <- list.files("development_set")
+all_dev_authors <- gsub(".txt", "", all_dev_authors)
 
-# 1. Blei
+mw_corpus <- list()
 
-blei_text <- paste(blei_text, collapse = " ")
-blei_text <- clean_texts(blei_text)
-blei_stylo <- stylo::txt.to.words.ext(blei_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-blei_stylo_mw <- list()
-
-for(i in 1:ceiling((length(blei_stylo)/50))){
+for(i in 1:length(all_dev_files)){
   
-  blei_stylo_mw[[i]] <- blei_stylo[((i-1)*50)+(1:500)]
+  my_text <- readLines(all_dev_files[i])
+  my_text <- paste(my_text, collapse = " ")
+  my_text <- clean_texts(my_text)
   
-}
-
-# delete chunks shorter than 500 words
-short_chunks <- unlist(lapply(blei_stylo_mw, function(x) length(which(is.na(x)))))
-short_chunks <- which(short_chunks > 0)
-blei_stylo_mw <- blei_stylo_mw[-short_chunks]
-
-# 2. Musil
-
-musil_text <- paste(musil_text, collapse = " ")
-musil_text <- clean_texts(musil_text)
-musil_stylo <- stylo::txt.to.words.ext(musil_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-musil_stylo_mw <- list()
-
-for(i in 1:ceiling((length(musil_stylo)/50))){
+  my_text_stylo <- stylo::txt.to.words.ext(my_text, corpus.lang = "German")
   
-  musil_stylo_mw[[i]] <- musil_stylo[((i-1)*50)+(1:500)]
+  # use moving window to create multiple selections of 500-word-long texts
+  mw_corpus[[i]] <- list()
+  
+  for(n in 1:ceiling((length(my_text_stylo)/50))){
+    
+    mw_corpus[[i]][[n]] <- my_text_stylo[((n-1)*50)+(1:500)]
+    
+  }
+  
+  # delete chunks shorter than 500 words
+  number_NAs <- unlist(lapply(mw_corpus[[i]], function(x) length(which(is.na(x)))))
+  exclude <- which(number_NAs > 0)
+  mw_corpus[[i]] <- mw_corpus[[i]][-exclude]
   
 }
 
-# delete chunks shorter than 500 words
-short_chunks <- unlist(lapply(musil_stylo_mw, function(x) length(which(is.na(x)))))
-short_chunks <- which(short_chunks > 0)
-musil_stylo_mw <- musil_stylo_mw[-short_chunks]
-
-# 3. Guetersloh
-
-guetersloh_text <- paste(guetersloh_text, collapse = " ")
-guetersloh_text <- clean_texts(guetersloh_text)
-guetersloh_stylo <- stylo::txt.to.words.ext(guetersloh_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-guetersloh_stylo_mw <- list()
-
-for(i in 1:ceiling((length(guetersloh_stylo)/50))){
-  
-  guetersloh_stylo_mw[[i]] <- guetersloh_stylo[((i-1)*50)+(1:500)]
-  
-}
-
-# delete chunks shorter than 500 words
-short_chunks <- unlist(lapply(guetersloh_stylo_mw, function(x) length(which(is.na(x)))))
-short_chunks <- which(short_chunks > 0)
-guetersloh_stylo_mw <- guetersloh_stylo_mw[-short_chunks]
-
-# 4. Kisch
-
-kisch_text <- paste(kisch_text, collapse = " ")
-kisch_text <- clean_texts(kisch_text)
-kisch_stylo <- stylo::txt.to.words.ext(kisch_text, corpus.lang = "German")
-
-# use moving window to create multiple selections of 500-word-long texts
-kisch_stylo_mw <- list()
-
-for(i in 1:ceiling((length(kisch_stylo)/50))){
-  
-  kisch_stylo_mw[[i]] <- kisch_stylo[((i-1)*50)+(1:500)]
-  
-}
-
-# delete chunks shorter than 500 words
-short_chunks <- unlist(lapply(kisch_stylo_mw, function(x) length(which(is.na(x)))))
-short_chunks <- which(short_chunks > 0)
-kisch_stylo_mw <- kisch_stylo_mw[-short_chunks]
-
-# create dev corpus (multiple text selections per author) 
-
-mw_corpus <- list(Musil = musil_stylo_mw, Blei = blei_stylo_mw, Guetersloh = guetersloh_stylo_mw, Kisch = kisch_stylo_mw)
+names(mw_corpus) <- all_dev_authors
 
 # prepare final results container
 
@@ -263,14 +204,14 @@ cat("Imposters results\n\n", file = filename)
 
 # main loop for analysis 
 
-for(method in 1:length(methods_combination$Var1)){
+for(method in 1:length(methods_combination$n_best_imposters)){
   
-  cat("\n\nConfiguration:", methods_combination$Var1[method], "imposters", methods_combination$Var2[method], "MFW", methods_combination$Var3[method], "\n\n", file = filename, append = T)
+  cat("\n\nConfiguration:", methods_combination$n_best_imposters[method], "imposters", methods_combination$MFW[method], "MFW", methods_combination$distance[method], "\n\n", file = filename, append = T)
   
   for(validation in 1:validation_rounds){
     
     # select best imposters (at the moment, random)
-    full_corpus_tmp <- full_corpus[sample(1:length(all_imposters), methods_combination$Var1[method], replace = F)]
+    full_corpus_tmp <- full_corpus[sample(1:length(all_imposters), methods_combination$n_best_imposters[method], replace = F)]
     
     cat("\n\nValidation", validation, "\n\n", file = filename, append = T)
     
@@ -311,11 +252,11 @@ for(method in 1:length(methods_combination$Var1)){
       # culling
       culled_ids <- which(!apply(data, 2, there_is_zero))
       data <- data[,culled_ids]
-      if(dim(data)[2] > methods_combination$Var2[method])
-        data <- data[,1:methods_combination$Var2[method]]
+      if(dim(data)[2] > methods_combination$MFW[method])
+        data <- data[,1:methods_combination$MFW[method]]
       
       # who wrote the test text? (in my case, this is the 1st row in the table):
-      imposters_results <- imposters(reference.set = data[-c(test_id, candidate_id),], test = data[test_id,], candidate.set = data[candidate_id,], distance = methods_combination$Var3[method])
+      imposters_results <- imposters(reference.set = data[-c(test_id, candidate_id),], test = data[test_id,], candidate.set = data[candidate_id,], distance = methods_combination$distance[method])
       
       cat(my_candidate, " probability: ", imposters_results, "\n", file = filename, sep = "", append = T)
       
@@ -339,17 +280,17 @@ for(method in 1:length(methods_combination$Var1)){
       # culling
       culled_ids <- which(!apply(data, 2, there_is_zero))
       data <- data[,culled_ids]
-      if(dim(data)[2] > methods_combination$Var2[method])
-        data <- data[,1:methods_combination$Var2[method]]
+      if(dim(data)[2] > methods_combination$MFW[method])
+        data <- data[,1:methods_combination$MFW[method]]
       
       # who wrote the test text? (in my case, this is the 1st row in the table):
-      imposters_results <- imposters(reference.set = data[-c(test_id, candidate_id),], test = data[test_id,], candidate.set = data[candidate_id,], distance = methods_combination$Var3[method])
+      imposters_results <- imposters(reference.set = data[-c(test_id, candidate_id),], test = data[test_id,], candidate.set = data[candidate_id,], distance = methods_combination$distance[method])
       
       cat("Not ", my_candidate, " probability: ", imposters_results, "\n", file = filename, sep = "", append = T)
       
       convalidations[[i]] <- c(convalidations[[i]], imposters_results)
       
-      cat("method:", method/length(methods_combination$Var1), "validation:", validation/validation_rounds, "\n", file = "progress.log")
+      cat("method:", method/length(methods_combination$n_best_imposters), "validation:", validation/validation_rounds, "\n", file = "progress.log")
       
     }
     
