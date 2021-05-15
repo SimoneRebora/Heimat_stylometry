@@ -166,6 +166,8 @@ all_imposters <- all_imposters[-exclude]
 # prepare multiple combinations of imposters to find the best one
 
 validation_imposters <- list()
+imposters_selections <- length(unique(methods_combination$imposters_group))
+n_best_imposters <- methods_combination$n_best_imposters[1]
 
 for(i in 1:imposters_selections){
   

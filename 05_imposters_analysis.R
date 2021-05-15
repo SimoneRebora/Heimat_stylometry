@@ -89,7 +89,7 @@ evaluation_syn <- evaluation_df %>% group_by(imposters_group) %>% summarize(qual
 
 selected_group <- which.max(evaluation_syn$quality_syn)
 
-methods_combination <- methods_combination %>% filter(Var4 == selected_group)
+methods_combination <- methods_combination %>% filter(imposters_group == selected_group)
 
 ################ Step 2
 # analysis of Heimat texts with the impostors method
@@ -314,23 +314,23 @@ for(heimat_text in 1:length(heimat_stylo)){
     result_tmp <- numeric()
     analysis_round <- 1
     
-    for(method in 1:length(methods_combination$Var1)){
+    for(method in 1:length(methods_combination$n_best_imposters)){
       
       # culling
       culled_ids <- which(!apply(data_full, 2, there_is_zero))
       data <- data_full[,culled_ids]
-      if(dim(data)[2] > methods_combination$Var2[method])
-        data <- data[,1:methods_combination$Var2[method]]
+      if(dim(data)[2] > methods_combination$MFW[method])
+        data <- data[,1:methods_combination$MFW[method]]
       
       for(validation in 1:validation_rounds){
         
         # who wrote the test text? (in my case, this is the 1st row in the table):
-        result_tmp[analysis_round] <- imposters(reference.set = data[-c(test_id, candidate_id),], test = data[test_id,], candidate.set = data[candidate_id,], distance = methods_combination$Var3[method])
+        result_tmp[analysis_round] <- imposters(reference.set = data[-c(test_id, candidate_id),], test = data[test_id,], candidate.set = data[candidate_id,], distance = methods_combination$distance[method])
         analysis_round <- analysis_round + 1
       
       }
       
-      cat("text:", heimat_text, "author:", i, "validation:", method/length(methods_combination$Var1), "\n", file = "progress.log")
+      cat("text:", heimat_text, "author:", i, "validation:", method/length(methods_combination$n_best_imposters), "\n", file = "progress.log")
       
     }
     
@@ -342,6 +342,3 @@ for(heimat_text in 1:length(heimat_stylo)){
   }
   
 }
-
-
-
