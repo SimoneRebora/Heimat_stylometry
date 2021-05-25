@@ -55,7 +55,7 @@ for(i in 1:length(my_texts)){
 
 # load Heimat texts
 
-metadata <- read.csv("test_set/metadata.csv", stringsAsFactors = F, row.names = 1)
+metadata <- read.csv("test_set/metadata.csv", stringsAsFactors = F)
 
 heimat_stylo <- list()
 

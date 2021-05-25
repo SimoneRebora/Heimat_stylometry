@@ -258,7 +258,7 @@ imposters_selection <- which(all_imposters %in% validation_imposters[[selected_g
 full_corpus_tmp <- full_corpus[imposters_selection]
 
 # prepare Heimat corpus
-metadata <- read.csv("test_set/metadata.csv", stringsAsFactors = F, row.names = 1)
+metadata <- read.csv("test_set/metadata.csv", stringsAsFactors = F)
 
 heimat_stylo <- list()
 
