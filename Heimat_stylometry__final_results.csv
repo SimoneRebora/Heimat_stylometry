@@ -1,87 +1,69 @@
-"","issue","article","title","length","stylometry","attribution","attribution_percentage","imposters_confirmation","imposters_score"
-"1","18.03.07",0,"Flugblatt",574,"yes","Kisch",70.78,"Uncertain",0.213
-"2","18.03.07",1,"Soldaten, es ist Eure Zeitung! ",622,"yes","Musil",56.15,"Negated",0.135
-"3","18.03.07",2,"Die ersten Drei. ",567,"yes","Uncertain",0,"Uncertain",0
-"4","18.03.07",3,"Der Wille zum Sieg. ",800,"yes","Kisch",53.25,"Negated",0.116
-"6","18.03.07",4,"Sei gegrüßt aus weiter Ferne... ",635,"yes","Musil",63.64,"Negated",0.171
-"7","18.03.07",5,"Sprache der Ziffern. ",538,"yes","Musil",67.53,"Negated",0.181
-"11","18.03.07",6,"Die Entwertung unseres Geldes. ",1200,"yes","Uncertain",0,"Uncertain",0
-"13","18.03.07",8,"Von unseren Feinden.",555,"yes","Kisch",100,"Confirmed",0.693
-"18","18.03.14",1,"Wo sind die wahren Kriegsverlängerer? ",886,"yes","Musil",62.34,"Negated",0.243
-"19","18.03.14",2,"Rückkehr der Gefangenen aus Rußland. ",931,"yes","Musil",96.05,"Uncertain",0.324
-"20","18.03.14",3,"Die Schweigepflicht der Soldaten. ",654,"yes","Uncertain",0,"Uncertain",0
-"24","18.03.14",5,"Unsere Volkswirtschaft an der Schwelle einer neuen Zeit — ",873,"yes","Kisch",84.49,"Uncertain",0.233
-"25","18.03.14",6,"Kriegsinvalidenfürsorge. — ",602,"yes","Guetersloh",68.9,"Confirmed",0.539
-"26","18.03.14",7,"Von unseren Feinden. — ",584,"yes","Blei",50.65,"Negated",0.099
-"30","18.03.21",1,"Verständigungsfriede — Gewaltfriede.",970,"yes","Guetersloh",67.97,"Confirmed",0.437
-"31","18.03.21",2," Kiew und Odessa.",852,"yes","Kisch",62.57,"Confirmed",0.451
-"32","18.03.21",3,"Wir Oesterreicher",1182,"yes","Musil",62.63,"Uncertain",0.29
-"33","18.03.21",4,"Sprache der Ziffer",505,"yes","Kisch",65.91,"Uncertain",0.301
-"35","18.03.21",5,"Luftverkehr Hamburg-Wien-Konsföntinopel",599,"yes","Guetersloh",74.43,"Confirmed",0.555
-"36","18.03.21",6,"Oesterr. Militär- Witwen- und Waisenfond",984,"yes","Kisch",72.27,"Confirmed",0.442
-"42","18.03.28",1,"Politische Wochenschau—trau—wem ?",1017,"yes","Musil",81.82,"Confirmed",0.47
-"43","18.03.28",2," Kriegs- und Friedensstimmung in Frankreich.",707,"yes","Guetersloh",92.82,"Confirmed",0.797
-"44","18.03.28",3,"Ostergedanken",564,"yes","Blei",73.38,"Negated",0.166
-"50","18.03.28",5,"Die Entwertung des Geldes im Inland",1045,"yes","Uncertain",0,"Uncertain",0
-"57","18.04.04",1," Das Beispiel Englands.",709,"yes","Musil",64.59,"Confirmed",0.708
-"61","18.04.04",2,"Die Ratten",590,"yes","Kisch",53.25,"Uncertain",0.213
-"64","18.04.04",4,"Was der Krieg kostet",568,"yes","Uncertain",0,"Uncertain",0
-"66","18.04.04",6,"Die Wiederaufrichtung des Gewerbes",797,"yes","Uncertain",0,"Uncertain",0
-"67","18.04.04",7," Was haben wir im Monat April im Gemüsegarten
- zu tun?",513,"yes","Uncertain",0,"Uncertain",0
-"68","18.04.04",8,"Wenn der Kriegsbeschädigte nach
- Hause kommt.  Die Invalidenämter.",650,"yes","Guetersloh",52.27,"Negated",0.357
-"69","18.04.04",9,"Von unseren Feinden",600,"yes","Uncertain",0,"Uncertain",0
-"73","18.04.11",1,"Oesterreichisch-ungarisches Merkblatt",893,"yes","Blei",71.43,"Uncertain",0.254
-"74","18.04.11",2,"Bündnisse",744,"yes","Musil",99.09,"Confirmed",0.747
-"77","18.04.11",4,"Wiedersehen",1044,"yes","Kisch",99.04,"Negated",0.047
-"80","18.04.11",6," Werden die Friedenspreise wiederkehren ?",1510,"yes","Blei",54.96,"Negated",0.162
-"81","18.04.11",7,"Die Bekämpfung der Volksseuchen.",531,"yes","Guetersloh",56.97,"Confirmed",0.49
-"82","18.04.11",8," Fürsorge für die eingerückten Angestellten.",579,"yes","Uncertain",0,"Uncertain",0
-"83","18.04.11",9," Von unseren Feinden.",767,"yes","Kisch",58.85,"Uncertain",0.29
-"89","18.04.18",1,"Das unbekannte Österreich",737,"yes","Blei",91.34,"Confirmed",0.526
-"90","18.04.18",2,"Bolschewiki unter sich",993,"yes","Kisch",83.55,"Confirmed",0.647
-"97","18.04.18",5," Die Bekämpfung der Volksseuchen.",570,"yes","Guetersloh",71.43,"Confirmed",0.719
-"98","18.04.18",6,"Die Spende für die eigene Tasche.",585,"yes","Uncertain",0,"Uncertain",0
-"102","18.04.25",1,"Kriegswucher",751,"yes","Musil",70.91,"Uncertain",0.338
-"103","18.04.25",2," Freiheit, Gleichheit, Brüderlichkeit",633,"yes","Kisch",55.15,"Negated",0.1
-"111","18.04.25",7,"Rohstoffe für das Gewerbe nach dem Kriege.",683,"yes","Guetersloh",85.12,"Negated",0.368
-"112","18.04.25",8," Die Bekämpfung der Volksseuchen",844,"yes","Guetersloh",59.5,"Negated",0.399
-"118","18.05.02",1,"Wie sich Italien den Frieden denkt.",884,"yes","Musil",64.43,"Negated",0.192
-"119","18.05.02",2,"Militarismus",474,"yes","Uncertain",0,"Uncertain",0
-"120","18.05.02",3," Das irische Feuer",684,"yes","Kisch",60.61,"Uncertain",0.275
-"123","18.05.02",5," Die Wohnungsergänzung.",573,"yes","Uncertain",0,"Uncertain",0
-"126","18.05.02",6,"Kloster-Kasernen.",517,"yes","Kisch",77.62,"Confirmed",0.607
-"128","18.05.02",8," Die Bekämpfung der Volksseuchen.",592,"yes","Guetersloh",67.17,"Confirmed",0.555
-"129","18.05.02",9," Die Invalidenfursorge des Kaiser-Karl-Kriegsfürsorgefonds.",710,"yes","Guetersloh",82.42,"Confirmed",0.688
-"134","18.05.09",1,"Die Vertagung des Reichsrats.",776,"yes","Musil",91.74,"Confirmed",0.543
-"135","18.05.09",2," Zwei bittere Lehren.",728,"yes","Musil",53.18,"Confirmed",0.511
-"136","18.05.09",3," Die Liebe zum Vaterland",738,"yes","Musil",74.87,"Negated",0.239
-"143","18.05.09",7," Wie entstehen meistens die Verbrechen ?",656,"yes","Guetersloh",52.27,"Confirmed",0.63
-"144","18.05.09",8,"Invaliden-Genossenschaften.",787,"yes","Guetersloh",66.51,"Confirmed",0.553
-"149","18.05.16",1,"Frieden mit Rumänien",666,"yes","Kisch",89.9,"Confirmed",0.541
-"150","18.05.16",2,"Der Staat",586,"yes","Musil",55.15,"Uncertain",0.332
-"151","18.05.16",3," Ausgaben und Sparsamkeit.",673,"yes","Blei",51.82,"Confirmed",0.35
-"157","18.05.16",7,"Die Bekämpfung der Volksseuchen.",633,"yes","Musil",95.19,"Confirmed",0.526
-"162","18.05.23",1,"Kriegsgegner",760,"yes","Musil",96.54,"Confirmed",0.731
-"163","18.05.23",2," Der engere Anschluß.",607,"yes","Guetersloh",53.48,"Confirmed",0.704
-"167","18.05.23",5,"Wie das Geld entstanden ist?",537,"yes","Musil",96.59,"Confirmed",0.465
-"169","18.05.23",7," Bedeutung der Entenzucht.",539,"yes","Uncertain",0,"Uncertain",0
-"172","18.05.23",9," Die Neuordnung der Versorgunsgenüsse",716,"yes","Guetersloh",75.94,"Confirmed",0.652
-"174","18.05.23",11,"Von unseren Feinden",534,"yes","Guetersloh",59.39,"Negated",0.377
-"177","18.05.30",1," Kaiserworte.",727,"yes","Musil",81.36,"Uncertain",0.372
-"182","18.05.30",6," Politik im Dorfe.",919,"yes","Kisch",94.47,"Negated",0.089
-"185","18.05.30",8," Der Bienenzüchter.",554,"yes","Kisch",91.52,"Uncertain",0.315
-"191","18.05.30",12,"Wissenswertes ",519,"yes","Kisch",98.7,"Uncertain",0.295
-"193","18.06.06",1," Der Tyrann Österreich.",819,"yes","Musil",96.82,"Confirmed",0.597
-"194","18.06.06",2," Teuerung.",802,"yes","Musil",87.6,"Confirmed",0.497
-"197","18.06.06",4,"Zeit der Ellenbogen",530,"yes","Kisch",50.8,"Negated",0.019
-"198","18.06.06",5,"Zeichnet die achte Kriegsanleihe!",664,"yes","Blei",55.68,"Confirmed",0.318
-"203","18.06.06",8,"Sozialpolitik nach dem Kriege.",540,"yes","Guetersloh",94.81,"Negated",0.34
-"213","18.07.11",4," Die Tapferkeitsmedaille der Kriegswucherer.",682,"yes","Blei",73.68,"Confirmed",0.362
-"215","18.07.11",6,"Die „abgewimmelte« Konkurrenz.",769,"yes","Blei",86.6,"Confirmed",0.466
-"229","18.07.18",2," Die Taube in der Hand.",828,"yes","Blei",73.18,"Confirmed",0.504
-"230","18.07.18",3,"  Der wirtschaftliche Zusammenschluß.",581,"yes","Guetersloh",73.33,"Confirmed",0.712
-"234","18.07.18",4," FM. Graf Conrad von Hoetzendorf. ",515,"yes","Guetersloh",77.84,"Confirmed",0.54
-"235","18.07.18",5,"Sogenannte Stimmungsmache. ",702,"yes","Guetersloh",99.04,"Confirmed",0.783
-"236","18.07.18",6,"Der Ostfriede. ",752,"yes","Guetersloh",62.73,"Negated",0.336
+"issue","article","title","length","stylometry","attribution","attribution_percentage","imposters_confirmation","imposters_score"
+"18.03.07",0,"Flugblatt",570,"yes","Kisch",70.78,"Uncertain",0.215
+"18.03.07",1,"Soldaten, es ist Eure Zeitung! ",622,"yes","Musil",56.15,"Negated",0.135
+"18.03.07",2,"Die ersten Drei. ",565,"yes","Uncertain",0,"Uncertain",0
+"18.03.07",3,"Der Wille zum Sieg. ",796,"yes","Kisch",53.25,"Negated",0.118
+"18.03.07",10,"Die Entwertung unseres Geldes. ",1182,"yes","Uncertain",0,"Uncertain",0
+"18.03.14",1,"Wo sind die wahren Kriegsverlängerer? ",885,"yes","Musil",62.34,"Negated",0.24
+"18.03.14",2,"Rückkehr der Gefangenen aus Rußland. ",928,"yes","Musil",96.05,"Negated",0.324
+"18.03.14",3,"Die Schweigepflicht der Soldaten. ",654,"yes","Uncertain",0,"Uncertain",0
+"18.03.14",7,"Unsere Volkswirtschaft an der Schwelle einer neuen Zeit — ",858,"yes","Kisch",84.49,"Uncertain",0.233
+"18.03.14",8,"Kriegsinvalidenfürsorge. — ",602,"yes","Guetersloh",68.9,"Confirmed",0.536
+"18.03.21",1,"Verständigungsfriede — Gewaltfriede.",964,"yes","Guetersloh",67.97,"Uncertain",0.435
+"18.03.21",2," Kiew und Odessa.",822,"yes","Kisch",62.57,"Confirmed",0.453
+"18.03.21",3,"Wir Oesterreicher",1178,"yes","Musil",62.63,"Negated",0.29
+"18.03.21",6,"Luftverkehr Hamburg-Wien-Konsföntinopel",589,"yes","Guetersloh",74.43,"Confirmed",0.552
+"18.03.21",7,"Oesterr. Militär- Witwen- und Waisenfond",934,"yes","Kisch",72.27,"Confirmed",0.448
+"18.03.28",1,"Politische Wochenschau—trau—wem ?",1017,"yes","Musil",81.82,"Confirmed",0.47
+"18.03.28",2," Kriegs- und Friedensstimmung in Frankreich.",702,"yes","Guetersloh",92.82,"Confirmed",0.794
+"18.03.28",9,"Die Entwertung des Geldes im Inland",1041,"yes","Uncertain",0,"Uncertain",0
+"18.04.04",1," Das Beispiel Englands.",709,"yes","Musil",64.59,"Confirmed",0.704
+"18.04.04",5,"Die Ratten",583,"yes","Kisch",53.25,"Uncertain",0.212
+"18.04.04",8,"Was der Krieg kostet",566,"yes","Uncertain",0,"Uncertain",0
+"18.04.04",11," Was haben wir im Monat April im Gemüsegarten
+ zu tun?",510,"yes","Uncertain",0,"Uncertain",0
+"18.04.11",1,"Oesterreichisch-ungarisches Merkblatt",892,"yes","Blei",71.43,"Negated",0.252
+"18.04.11",2,"Bündnisse",740,"yes","Musil",99.09,"Confirmed",0.748
+"18.04.11",8," Werden die Friedenspreise wiederkehren ?",752,"yes","Uncertain",0,"Uncertain",0
+"18.04.11",9,"Die Bekämpfung der Volksseuchen.",531,"yes","Guetersloh",56.97,"Confirmed",0.494
+"18.04.11",10," Fürsorge für die eingerückten Angestellten.",573,"yes","Uncertain",0,"Uncertain",0
+"18.04.18",1,"Das unbekannte Österreich",735,"yes","Blei",91.34,"Confirmed",0.523
+"18.04.18",2,"Bolschewiki unter sich",987,"yes","Kisch",83.55,"Confirmed",0.645
+"18.04.18",9," Die Bekämpfung der Volksseuchen.",556,"yes","Guetersloh",71.43,"Confirmed",0.722
+"18.04.18",10,"Die Spende für die eigene Tasche.",585,"yes","Uncertain",0,"Uncertain",0
+"18.04.25",1,"Kriegswucher",751,"yes","Musil",70.91,"Negated",0.335
+"18.04.25",2," Freiheit, Gleichheit, Brüderlichkeit",628,"yes","Kisch",55.15,"Negated",0.101
+"18.04.25",11," Die Bekämpfung der Volksseuchen",835,"yes","Guetersloh",59.5,"Negated",0.404
+"18.05.02",1,"Wie sich Italien den Frieden denkt.",883,"yes","Musil",64.43,"Negated",0.194
+"18.05.02",2,"Militarismus",473,"yes","Uncertain",0,"Uncertain",0
+"18.05.02",3," Das irische Feuer",678,"yes","Kisch",60.61,"Uncertain",0.277
+"18.05.02",6," Die Wohnungsergänzung.",573,"yes","Uncertain",0,"Uncertain",0
+"18.05.02",9,"Kloster-Kasernen.",513,"yes","Kisch",77.62,"Confirmed",0.606
+"18.05.02",11," Die Bekämpfung der Volksseuchen.",582,"yes","Guetersloh",67.17,"Confirmed",0.558
+"18.05.09",1,"Die Vertagung des Reichsrats.",775,"yes","Musil",91.74,"Confirmed",0.542
+"18.05.09",2," Zwei bittere Lehren.",727,"yes","Musil",53.18,"Confirmed",0.504
+"18.05.09",3," Die Liebe zum Vaterland",736,"yes","Musil",74.87,"Negated",0.239
+"18.05.09",10," Wie entstehen meistens die Verbrechen ?",612,"yes","Guetersloh",52.27,"Confirmed",0.631
+"18.05.09",11,"Invaliden-Genossenschaften.",516,"yes","Musil",79.39,"Negated",0.327
+"18.05.16",1,"Frieden mit Rumänien",658,"yes","Kisch",89.9,"Confirmed",0.542
+"18.05.16",2,"Der Staat",586,"yes","Musil",55.15,"Negated",0.331
+"18.05.16",3," Ausgaben und Sparsamkeit.",672,"yes","Blei",51.82,"Confirmed",0.348
+"18.05.16",9,"Die Bekämpfung der Volksseuchen.",633,"yes","Musil",95.19,"Confirmed",0.525
+"18.05.23",1,"Kriegsgegner",758,"yes","Musil",96.54,"Confirmed",0.73
+"18.05.23",2," Der engere Anschluß.",606,"yes","Guetersloh",53.48,"Confirmed",0.702
+"18.05.23",6,"Wie das Geld entstanden ist?",535,"yes","Musil",96.59,"Confirmed",0.469
+"18.05.23",11," Die Neuordnung der Versorgunsgenüsse",702,"yes","Guetersloh",75.94,"Confirmed",0.649
+"18.05.30",1," Kaiserworte.",727,"yes","Musil",81.36,"Negated",0.371
+"18.05.30",6," Politik im Dorfe.",919,"yes","Kisch",94.47,"Negated",0.087
+"18.06.06",1," Der Tyrann Österreich.",819,"yes","Musil",96.82,"Confirmed",0.598
+"18.06.06",2," Teuerung.",799,"yes","Musil",87.6,"Confirmed",0.495
+"18.06.06",5,"Zeit der Ellenbogen",530,"yes","Kisch",50.8,"Negated",0.019
+"18.06.06",6,"Zeichnet die achte Kriegsanleihe!",636,"yes","Blei",55.68,"Confirmed",0.319
+"18.06.06",11,"Sozialpolitik nach dem Kriege.",540,"yes","Guetersloh",94.81,"Negated",0.343
+"18.07.11",4," Die Tapferkeitsmedaille der Kriegswucherer.",682,"yes","Blei",73.68,"Confirmed",0.358
+"18.07.11",6,"Die „abgewimmelte« Konkurrenz.",769,"yes","Blei",86.6,"Confirmed",0.462
+"18.07.18",3," Die Taube in der Hand.",827,"yes","Blei",73.18,"Confirmed",0.504
+"18.07.18",4,"  Der wirtschaftliche Zusammenschluß.",580,"yes","Guetersloh",73.33,"Confirmed",0.714
+"18.07.18",8," FM. Graf Conrad von Hoetzendorf. ",514,"yes","Guetersloh",77.84,"Confirmed",0.539
+"18.07.18",9,"Sogenannte Stimmungsmache. ",702,"yes","Guetersloh",99.04,"Confirmed",0.782
+"18.07.18",10,"Der Ostfriede. ",751,"yes","Guetersloh",62.73,"Negated",0.339

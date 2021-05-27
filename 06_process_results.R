@@ -196,4 +196,4 @@ metadata$imposters_confirmation <- final_imposters
 metadata$imposters_score <- final_imposters_score
 metadata$imposters_score <- round(as.numeric(metadata$imposters_score), digits = 3)
 
-write.csv(metadata, file = "Heimat_stylometry__final_results.csv")
+write.csv(metadata, file = "Heimat_stylometry__final_results.csv", row.names = F)
